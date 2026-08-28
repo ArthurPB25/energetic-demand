@@ -15,6 +15,7 @@
 **US07 - Edição e Remoção de Equipamento:** Como um usuário logado, eu quero alterar o tempo de uso ou remover um equipamento da lista, para simular diferentes cenários ou corrigir um cadastro errado.
 
 **US08 - Cálculo de Gasto em kWh:** Como um usuário logado, eu quero visualizar o consumo total de energia da casa em kWh, baseado na soma de todos os equipamentos cadastrados.
+
 **US09 - Estimativa de Custo Financeiro:** Como um usuário logado, eu quero inserir o valor da tarifa de energia da minha região (R$/kWh), para ver a estimativa em dinheiro da minha próxima conta de luz.
 
 **US10 - Ranking de Consumo (Opcional):** Como um usuário logado, eu quero ver quais equipamentos gastam mais energia em um gráfico ou lista ordenada, para saber onde focar meus esforços de economia.
