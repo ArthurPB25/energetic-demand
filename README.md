@@ -1,4 +1,4 @@
-# Backlog de Tarefas do Projeto (Visão Técnica)
+# Backlog de Tarefas do Projeto 
 
 ### US01 - Cadastro de Novo Usuário
 * **Task 1.1:** Implementar fluxo condicional inicial usando `if/while` para verificar a variável `acesso`. Se `acesso == "Entrar"`, exibir mensagem de erro em loop até a escolha correta.
