@@ -1,54 +1,88 @@
-# Backlog de Tarefas do Projeto 
+# ⚡ Gestão de Consumo de Energia (Energetic Demand)
+
+Este repositório contém a documentação e a implementação em Python de um sistema via console para gestão e estimativa de consumo de energia elétrica, estruturado a partir de User Stories.
+
+## 📋 Product Backlog e Tasks Técnicas
 
 ### US01 - Cadastro de Novo Usuário
-* **Task 1.1:** Implementar fluxo condicional inicial usando `if/while` para verificar a variável `acesso`. Se `acesso == "Entrar"`, exibir mensagem de erro em loop até a escolha correta.
-* **Task 1.2:** Capturar as strings de entrada através de `input()` para as variáveis `nome`, `email` e `senha` caso a condição `acesso == "Cadastrar"` seja satisfeita.
-* **Task 1.3:** Utilizar `f-strings` (ex: `f"Nome: {nome}"`) para formatar e imprimir o log de sucesso no console, validando a persistência das variáveis em memória.
+> *Como um visitante, eu quero criar uma conta com nome, e-mail e senha, para que eu possa ter um perfil seguro no sistema.*
+
+- [ ] Criar interface de menu no console para o usuário selecionar a opção "Cadastrar" ou "Entrar".
+- [ ] Implementar laço `while` para validar se a opção escolhida foi "Entrar" e exibir mensagem iterativa de negação de acesso.
+- [ ] Implementar captura de dados (nome, e-mail e senha) via função `input()` caso a opção seja "Cadastrar".
+- [ ] Exibir mensagem formatada de confirmação no console com os dados inseridos e aviso de sucesso.
 
 ### US02 - Login no Sistema
-* **Task 2.1:** Declarar as constantes (hardcoded) de validação: `nome_cadastrado`, `email_cadastrado` e `senha_cadastrada`.
-* **Task 2.2:** Utilizar `input()` para capturar os dados de tentativa de login nas variáveis locais `nome`, `email` e `senha`.
-* **Task 2.3:** Implementar um laço `while` utilizando operadores lógicos `!=` e `or` para bloquear o avanço caso os inputs não correspondam às constantes estabelecidas, solicitando novas entradas iterativamente.
-* **Task 2.4:** Condicionar a mensagem de sucesso a um `if` contendo operadores `and` para garantir a correspondência estrita de todas as três credenciais.
+> *Como um usuário cadastrado, eu quero fazer login com minhas credenciais, para acessar o painel das minhas casas.*
+
+- [ ] Definir variáveis estáticas (`nome_cadastrado`, `email_cadastrado`, `senha_cadastrada`) para validação.
+- [ ] Criar prompts de `input()` para receber as credenciais de login do usuário no console.
+- [ ] Desenvolver loop de validação (`while`) que solicite os dados novamente caso não coincidam com as variáveis do sistema.
+- [ ] Imprimir mensagem de "Logado com sucesso!" após a validação correta das credenciais via bloco `if`.
 
 ### US03 - Cadastro de Casa
-* **Task 3.1:** Receber o número total de residências via `int(input())` e armazenar na variável inteira `quantidade_casas`.
-* **Task 3.2:** Implementar um laço `for i in range(quantidade_casas):` para iterar sobre a quantidade definida de cadastros.
-* **Task 3.3:** Dentro do laço, realizar o prompt de `nome_casa` e utilizar a expressão `i + 1` na `f-string` para exibir corretamente o índice de controle da casa para o usuário (ex: 1ª, 2ª).
+> *Como um usuário logado, eu quero cadastrar uma nova casa (ex: "Minha Casa", "Casa de Praia"), para organizar os meus gastos por endereço.*
+
+- [ ] Adicionar `input()` que pergunte ao usuário a quantidade de casas a serem cadastradas, convertendo a entrada para `int`.
+- [ ] Implementar um loop de repetição `for` baseado na quantidade informada.
+- [ ] Dentro do loop, utilizar `input()` iterativo para capturar o nome de cada casa (1ª casa, 2ª casa, etc.).
+- [ ] Exibir mensagem de sucesso dinâmica para cada casa inserida.
 
 ### US04 - Listagem de Casas
-* **Task 4.1:** Instanciar uma lista vazia `listagem_casas = []` antes do bloco de iteração de cadastro.
-* **Task 4.2:** Utilizar o método `listagem_casas.append(nome_casa)` dentro do laço `for` de cadastro para popular o array com as strings das casas criadas.
-* **Task 4.3:** Criar um segundo laço `for i in range(quantidade_casas):` para varrer o array e executar o `print(listagem_casas[i])` para exibir os índices salvos.
+> *Como um usuário logado, eu quero visualizar uma lista de todas as casas que cadastrei, para escolher qual desejo gerenciar no momento.*
+
+- [ ] Inicializar uma estrutura de lista vazia (`listagem_casas = []`) antes do loop de cadastro de casas.
+- [ ] Adicionar instrução `.append()` dentro do loop de cadastro para salvar o nome de cada casa na lista.
+- [ ] Criar um novo bloco `for` para iterar sobre a `listagem_casas`.
+- [ ] Imprimir no console todas as casas armazenadas na lista.
 
 ### US05 - Cadastro de Equipamento
-* **Task 5.1:** Receber a quantidade de equipamentos na variável `qntd_equipamento` via type casting `int(input())`.
-* **Task 5.2:** Criar um laço `for i in range(qntd_equipamento):` para capturar os atributos de cada equipamento.
-* **Task 5.3:** Dentro do laço, declarar a variável string `equipamento` e forçar a tipagem inteira para as variáveis `potencia` e `uso_diario` usando `int(input())`.
+> *Como um usuário logado gerenciando uma casa, eu quero adicionar um equipamento informando seu nome, potência em Watts e tempo de uso diário.*
+
+- [ ] Solicitar via `input()` a quantidade de tipos diferentes de equipamentos que serão registrados.
+- [ ] Criar um loop `for` configurado para rodar a quantidade de vezes informada.
+- [ ] Capturar, a cada iteração, os dados do equipamento via `input()`: nome (string), potência em W (int) e uso diário em horas (int).
+- [ ] Exibir mensagem de confirmação de sucesso para cada equipamento assim que ele for inserido.
 
 ### US06 - Listagem de Equipamentos da Casa
-* **Task 6.1:** Inicializar a estrutura de dados em array `listagem_equipamento = []` para armazenar o log da sessão.
-* **Task 6.2:** Embutir o método `.append(equipamento)` ao final do laço de captação de dados para empilhar o nome de cada item.
-* **Task 6.3:** Varrer e listar os elementos armazenados imprimindo a posição do índice na memória através de `print(listagem_equipamento[i])` em um laço de repetição final.
+> *Como um usuário logado, eu quero ver todos os equipamentos cadastrados em uma casa específica, para ter controle do que já foi inserido.*
+
+- [ ] Criar uma estrutura de lista vazia (`listagem_equipamento = []`) antes do laço de equipamentos.
+- [ ] Inserir o método `.append(equipamento)` ao final do bloco de cadastro para persistir o nome do aparelho.
+- [ ] Implementar um segundo loop `for` que itere pela quantidade total de equipamentos.
+- [ ] Imprimir no console o nome de todos os equipamentos armazenados na lista sequencialmente.
 
 ### US07 - Edição e Remoção de Equipamento
-* **Task 7.1:** Envolver o bloco de edição em um laço `while permicao_edicao == 1:` utilizando uma variável flag para controle de estado.
-* **Task 7.2:** Capturar a string "s" ou "n" na variável `edicao` e implementar o controle de fluxo via `if`. Se "n", acionar o statement `break` para interromper o laço principal.
-* **Task 7.3:** Se a variável `edicao` for avaliada como "s", reescrever as variáveis e recriar a lista, executando novamente a lógica de atribuição `listagem_equipamento.append(equipamento)` em um novo escopo de repetição para sobrescrever os dados anteriores.
+> *Como um usuário logado, eu quero alterar o tempo de uso ou remover um equipamento da lista, para simular diferentes cenários ou corrigir um cadastro errado.*
+
+- [ ] Criar variável de controle (`permicao_edicao = 1`) para suportar o laço `while` de edição.
+- [ ] Solicitar via `input("s/n")` se o usuário deseja fazer alterações no cadastro dos equipamentos.
+- [ ] Implementar fluxo "s": solicitar nova quantidade, resetar a `listagem_equipamento` e rodar um novo loop `for` para sobrescrever os dados.
+- [ ] Implementar fluxo "n": exibir mensagem de "Fim dos cadastros!" e acionar `break` para encerrar o laço `while`.
 
 ### US08 - Cálculo de Gasto em kWh
-* **Task 8.1:** Inicializar o acumulador numérico `consumo_energia_total = 0` na raiz do escopo de cadastro.
-* **Task 8.2:** Dentro da iteração de cada equipamento, aplicar a expressão algébrica `consumo_energia = (potencia * uso_diario) / 1000` para converter Watts/hora para kWh.
-* **Task 8.3:** Empregar o operador de atribuição aditiva `+=` para incrementar a variável `consumo_energia_total` com o valor de `consumo_energia` a cada iteração do loop.
-* **Task 8.4:** Utilizar os formatadores de casas decimais em string (`:.2f`) nos retornos do console para garantir a exibição padrão de floats de grandezas físicas.
+> *Como um usuário logado, eu quero visualizar o consumo total de energia da casa em kWh, baseado na soma de todos os equipamentos cadastrados.*
+
+- [ ] Inicializar variável acumuladora `consumo_energia_total = 0`.
+- [ ] Aplicar a fórmula matemática `(potencia * uso_diario) / 1000` dentro dos laços principal e de edição.
+- [ ] Atualizar o totalizador acumulando o kWh do equipamento atual (`consumo_energia_total += consumo_energia`).
+- [ ] Imprimir no console o gasto diário de cada item limitando a formatação a duas casas decimais (`:.2f`).
+- [ ] Exibir o consumo total somado (kWh) ao final dos cadastros.
 
 ### US09 - Estimativa de Custo Financeiro
-* **Task 9.1:** Adicionar o prompt da variável `tarifa_energia` utilizando o type casting de ponto flutuante `float(input())`.
-* **Task 9.2:** Criar o acumulador `gasto_consumo_energia_total = 0` e calcular os custos isolados via `gasto_consumo_energia = consumo_energia * tarifa_energia` dentro do loop de equipamentos.
-* **Task 9.3:** Somar iterativamente os gastos isolados na variável acumuladora utilizando `+=`.
-* **Task 9.4:** Imprimir o output diário e o cálculo de projeção mensal efetuando a operação aritmética diretamente nos argumentos do print: `{gasto_consumo_energia_total * 30:.2f}`.
+> *Como um usuário logado, eu quero inserir o valor da tarifa de energia da minha região (R$/kWh), para ver a estimativa em dinheiro da minha próxima conta de luz.*
 
-### US10 - Ranking de Consumo (Opcional - Proposição Técnica)
-* **Task 10.1:** Refatorar a lista `listagem_equipamento` para aceitar dicionários iteráveis, ex: `{"nome": equipamento, "consumo": consumo_energia}` em vez de apenas strings.
-* **Task 10.2:** Invocar a função `sorted()` ou o método `.sort()` na lista de dicionários, passando uma função lambda na key (`key=lambda x: x['consumo']`) e definindo o parâmetro `reverse=True`.
-* **Task 10.3:** Criar um laço de repetição sobre a lista já indexada e ordenada para imprimir os itens decrescentes em conjunto com os valores armazenados de consumo.
+- [ ] Adicionar requisição da tarifa regional de energia (`tarifa_energia`) convertendo o valor para `float`.
+- [ ] Criar variável acumuladora `gasto_consumo_energia_total = 0`.
+- [ ] Calcular o custo em Reais multiplicando o consumo em kWh do equipamento pela tarifa inserida.
+- [ ] Imprimir o gasto individual diário em R$ para cada equipamento.
+- [ ] Calcular e exibir o gasto financeiro total por mês multiplicando o acumulador diário por 30.
+
+### US10 - Ranking de Consumo
+> *Como um usuário logado, eu quero ver quais equipamentos gastam mais energia em uma lista ordenada, para saber onde focar meus esforços de economia.*
+
+- [ ] Criar lista `listagem_consumo = []` e preenchê-la com os gastos em kWh via `.append()`.
+- [ ] Desenvolver algoritmo de ordenação (com dois laços `for` aninhados) comparando índices subsequentes para estruturar os itens do maior para o menor.
+- [ ] Sincronizar as trocas de posições (usando variáveis `aux_consumo` e `aux_equipamento`) tanto para a lista de consumos quanto para a lista de nomes.
+- [ ] Iterar sobre as listas reordenadas.
+- [ ] Exibir o Ranking de Consumo final estruturado com posição, nome do equipamento e respectivo valor em kWh.
