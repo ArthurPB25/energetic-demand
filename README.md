@@ -87,3 +87,10 @@ Este repositório contém a documentação e a implementação em Python de um s
 - [ ] Sincronizar as trocas de posições (usando variáveis `aux_consumo` e `aux_equipamento`) tanto para a lista de consumos quanto para a lista de nomes.
 - [ ] Iterar sobre as listas reordenadas.
 - [ ] Exibir o Ranking de Consumo final estruturado com posição, nome do equipamento e respectivo valor em kWh.
+### GRUPO:
+- Arthur Primo Brandão RM:573572
+- Leandro Cavaccini Brito RM: 570556
+- Lucas Dorice Dos Santos RM: 568692
+- Vinícius de Oliveira Coppola RM: 571699
+- Felipe Gouveia Braga RM: 568956
+
