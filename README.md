@@ -1,3 +1,4 @@
+LINK DO TRELLO(KANBAN): https://trello.com/invite/b/6a9b5a1fd840c5c2d6c88ecb/ATTI4337e262f98234c54f4738603dcbb929A035E99D/⚡-gestao-de-consumo-de-energia-energetic-demand
 # ⚡ Gestão de Consumo de Energia (Energetic Demand)
 
 Este repositório contém a documentação e a implementação em Python de um sistema via console para gestão e estimativa de consumo de energia elétrica, estruturado a partir de User Stories.
