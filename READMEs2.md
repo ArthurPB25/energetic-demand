@@ -1,3 +1,4 @@
+LINK KANBAN S2 - https://trello.com/invite/b/6aadbe3230663b431c53ee02/ATTI0eb92685ad416f14ac1350f92e1f71ac5E73D7D2/kanban-charge-demand
 # 📋 Product Backlog — User Stories e Tasks
  
 ## 🔹 US01: Dimensionamento da Demanda e Potência Solar
