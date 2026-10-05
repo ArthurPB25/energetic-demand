@@ -115,3 +115,14 @@ if autonomia_horas > 0:
     print(f"Banco de Baterias: {qtd_baterias}x {bateria_fabricante} {bateria_modelo} - R$ {custo_baterias:.2f}")
 else:
     print("Nenhuma bateria adicionada ao projeto.")
+
+#US05
+print("\n--- ORÇAMENTO E PROPOSTA COMERCIAL (US05) ---")
+ 
+custo_equipamentos = custo_painel + custo_inversor + custo_bateria
+custo_instalacao_estruturas = custo_equipamentos * 0.35  # Regra dos 35% de custos indiretos
+custo_total_projeto = custo_equipamentos + custo_instalacao_estruturas
+ 
+print(f"Custo Total de Equipamentos: R$ {custo_equipamentos:.2f}")
+print(f"Custos de Instalação e Estruturas (35%): R$ {custo_instalacao_estruturas:.2f}")
+print(f"VALOR TOTAL DO ORÇAMENTO: R$ {custo_total_projeto:.2f}")
