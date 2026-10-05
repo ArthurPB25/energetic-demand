@@ -88,3 +88,30 @@ if menor_custo_inversor == 9999999.99:
     print("Erro: Nenhum inversor Grid-Tie compatível encontrado.")
 else:
     print(f"Inversor Selecionado: 1x {inversor_fabricante} {inversor_modelo} ({inversor_tipo}) - R$ {menor_custo_inversor:.2f}")
+
+#US04
+print("\n--- DIMENSIONAMENTO DE BATERIAS (US04) ---")
+autonomia_horas = float(input("Digite a autonomia desejada em horas (0 para sem baterias): "))
+ 
+if autonomia_horas > 0:
+    consumo_diario = consumo_mensal / 30
+    energia_autonomia = consumo_diario * (autonomia_horas / 24)
+ 
+    arquivo_baterias = open("baterias.csv", "r")
+    linhas_baterias = arquivo_baterias.readlines()
+    arquivo_baterias.close()
+ 
+    dados_bat = linhas_baterias[1].strip().split(",")
+    bateria_fabricante = dados_bat[1]
+    bateria_modelo = dados_bat[2]
+    capacidade_kWh = float(dados_bat[4])
+    dod = float(dados_bat[5])
+    preco_bat = float(dados_bat[7])
+    eficiencia_bateria = 0.95
+    capacidade_requerida = energia_autonomia / (dod * eficiencia_bateria)
+    qtd_baterias = math.ceil(capacidade_requerida / capacidade_kWh)
+    custo_baterias = qtd_baterias * preco_bat
+ 
+    print(f"Banco de Baterias: {qtd_baterias}x {bateria_fabricante} {bateria_modelo} - R$ {custo_baterias:.2f}")
+else:
+    print("Nenhuma bateria adicionada ao projeto.")
