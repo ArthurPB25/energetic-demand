@@ -25,32 +25,6 @@ print(f"Potência requerida (PFV): {potencia_requerida:.2f} kWp")
 
 #US02
 
-arquivo_paineis = open("paineis.csv", "w")
-arquivo_paineis.write("id,fabricante,modelo,potencia_Wp,eficiencia,preco\n")
-arquivo_paineis.write("1,Canadian,HiKu6,550,21.3,850.00\n")
-arquivo_paineis.write("2,Jinko,Tiger Pro,450,20.8,600.00\n")
-arquivo_paineis.close()
-
- 
-print("\n--- DIMENSIONAMENTO DA DEMANDA E POTÊNCIA SOLAR (US01) ---")
-consumo_mensal = float(input("Digite o consumo médio mensal da residência (kWh): "))
- 
-while consumo_mensal <= 0:
-    consumo_mensal = float(input("Digite o consumo médio mensal da residência (kWh): "))
- 
-f = float(input("Digite o percentual de atendimento desejado (1 a 100): "))
- 
-while f < 1 or f > 100:
-    f = float(input("Digite o percentual de atendimento desejado (1 a 100): "))
- 
-hsp = float(input("Digite as Horas de Sol Pleno (HSP) da sua região: "))
-rendimento_global = 0.78
- 
-energia_mensal_alvo = consumo_mensal * (f / 100)
-potencia_requerida = energia_mensal_alvo / (hsp * 30 * rendimento_global)
- 
- 
-#<Diferencial US02 do>
 print("\n--- SELEÇÃO DE MÓDULOS FOTOVOLTAICOS (US02) ---")
 arquivo_paineis = open("paineis.csv", "r")
 linhas_paineis = arquivo_paineis.readlines()
@@ -82,3 +56,4 @@ for i in range(1, len(linhas_paineis)):
  
 print(f"Potência Efetiva Instalada: {potencia_instalada:.2f} kWp")
 print(f"Painéis Selecionados: {qtd_paineis}x {painel_fabricante} {painel_modelo} - R$ {menor_custo_painel:.2f}")
+
