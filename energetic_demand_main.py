@@ -57,3 +57,34 @@ for i in range(1, len(linhas_paineis)):
 print(f"Potência Efetiva Instalada: {potencia_instalada:.2f} kWp")
 print(f"Painéis Selecionados: {qtd_paineis}x {painel_fabricante} {painel_modelo} - R$ {menor_custo_painel:.2f}")
 
+#US03
+print("\n--- SELEÇÃO DE INVERSOR (US03) ---")
+arquivo_inversores = open("inversores.csv", "r")
+linhas_inversores = arquivo_inversores.readlines()
+arquivo_inversores.close()
+ 
+menor_custo_inversor = 9999999.99
+inversor_fabricante = ""
+inversor_modelo = ""
+inversor_tipo = ""
+ 
+for i in range(1, len(linhas_inversores)):
+    dados_inv = linhas_inversores[i].strip().split(",")
+    fabricante_inv = dados_inv[1]
+    modelo_inv = dados_inv[2]
+    potencia_inv = float(dados_inv[3])
+    tipo_inv = dados_inv[4]
+    preco_inv = float(dados_inv[5])
+ 
+    # Regra: Potencia nominal >= 0.85 * Pinstalada E tipo Grid-Tie
+    if potencia_inv >= (0.85 * potencia_instalada) and tipo_inv == "Grid-Tie":
+        if preco_inv < menor_custo_inversor:
+            menor_custo_inversor = preco_inv
+            inversor_fabricante = fabricante_inv
+            inversor_modelo = modelo_inv
+            inversor_tipo = tipo_inv
+ 
+if menor_custo_inversor == 9999999.99:
+    print("Erro: Nenhum inversor Grid-Tie compatível encontrado.")
+else:
+    print(f"Inversor Selecionado: 1x {inversor_fabricante} {inversor_modelo} ({inversor_tipo}) - R$ {menor_custo_inversor:.2f}")
